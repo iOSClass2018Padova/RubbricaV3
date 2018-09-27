@@ -74,7 +74,8 @@ class DetailPersonController: UITableViewController {
         case PERSON_INFO:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailPersonInfoCell.kIdentifier, for: indexPath) as! DetailPersonInfoCell
             
-            cell.nameProfile.text = person.fullName()
+            cell.nameProfile.text = person.name
+            cell.surnameProfile.text = person.surname
             cell.niknameProfile.text = person.nikname
             cell.mobbileProfile.text = person.mobile
             

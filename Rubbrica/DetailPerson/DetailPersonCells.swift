@@ -19,6 +19,7 @@ class DetailPersonInfoCell: UITableViewCell {
             imageProfile.clipsToBounds = true
         }
     }
+    @IBOutlet weak var surnameProfile: UITextField!
     @IBOutlet weak var nameProfile: UITextField!
     @IBOutlet weak var niknameProfile: UITextField!
     @IBOutlet weak var mobbileProfile: UITextField!

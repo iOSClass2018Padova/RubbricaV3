@@ -89,8 +89,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPV-u5-Vvd">
-                                            <rect key="frame" x="140" y="20" width="219" height="30"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPV-u5-Vvd">
+                                            <rect key="frame" x="140" y="20" width="49" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="k3z-6g-hY5"/>
                                             </constraints>
@@ -127,11 +127,19 @@
                                                 <action selector="addPictureProfile:" destination="L0n-RF-pjL" eventType="touchUpInside" id="pni-Sb-lhu"/>
                                             </connections>
                                         </button>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8QJ-XM-kya">
+                                            <rect key="frame" x="191" y="20" width="72.5" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="Oys-uh-vxZ"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="eWa-wD-T3V" firstAttribute="leading" secondItem="xCl-EG-8pY" secondAttribute="leadingMargin" constant="4" id="9Cw-eY-Rt2"/>
                                         <constraint firstItem="DPV-u5-Vvd" firstAttribute="top" secondItem="eWa-wD-T3V" secondAttribute="top" id="Cez-Wl-6lv"/>
-                                        <constraint firstItem="DPV-u5-Vvd" firstAttribute="trailing" secondItem="xCl-EG-8pY" secondAttribute="trailingMargin" id="EVd-LK-FaM"/>
                                         <constraint firstItem="EWj-bP-s9i" firstAttribute="bottom" secondItem="eWa-wD-T3V" secondAttribute="bottom" id="QJG-Ur-ne3"/>
                                         <constraint firstItem="eWa-wD-T3V" firstAttribute="centerY" secondItem="xCl-EG-8pY" secondAttribute="centerY" id="SHQ-50-hgk"/>
                                         <constraint firstItem="5rd-MV-I11" firstAttribute="centerY" secondItem="eWa-wD-T3V" secondAttribute="centerY" id="UR2-WR-qu4"/>
@@ -140,6 +148,8 @@
                                         <constraint firstItem="5rd-MV-I11" firstAttribute="leading" secondItem="eWa-wD-T3V" secondAttribute="trailing" constant="20" id="fPf-f4-RfR"/>
                                         <constraint firstItem="DPV-u5-Vvd" firstAttribute="leading" secondItem="eWa-wD-T3V" secondAttribute="trailing" constant="20" id="fmK-VS-euH"/>
                                         <constraint firstItem="5rd-MV-I11" firstAttribute="trailing" secondItem="xCl-EG-8pY" secondAttribute="trailingMargin" id="pdR-Zh-EF7"/>
+                                        <constraint firstItem="8QJ-XM-kya" firstAttribute="leading" secondItem="DPV-u5-Vvd" secondAttribute="trailing" constant="2" id="spW-4i-amd"/>
+                                        <constraint firstItem="8QJ-XM-kya" firstAttribute="centerY" secondItem="DPV-u5-Vvd" secondAttribute="centerY" id="xKx-1G-une"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -147,6 +157,7 @@
                                     <outlet property="mobbileProfile" destination="EWj-bP-s9i" id="HOA-7G-7cN"/>
                                     <outlet property="nameProfile" destination="DPV-u5-Vvd" id="EdM-No-7ps"/>
                                     <outlet property="niknameProfile" destination="5rd-MV-I11" id="0Vu-aY-PXU"/>
+                                    <outlet property="surnameProfile" destination="8QJ-XM-kya" id="umf-b0-Cgq"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailPersonAddressCell" rowHeight="98" id="cU3-bq-EF2" customClass="DetailPersonAddressCell" customModule="Rubbrica" customModuleProvider="target">
