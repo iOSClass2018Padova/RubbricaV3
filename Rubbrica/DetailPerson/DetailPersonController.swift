@@ -15,10 +15,13 @@ class DetailPersonController: UIViewController {
     private let PERSON_EMAIL = 2
     
     @IBOutlet weak var tableView: UITableView!
+    
     private var pickerController:UIImagePickerController?
     
     var person : Person!
     var delegate : ListPeopleDelegate?
+    
+    private var editingProfile : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +32,13 @@ class DetailPersonController: UIViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    @IBAction func editAction(_ sender: Any) {
+        editingProfile = !editingProfile
+        tableView.reloadData()
+    }
     
     @IBAction func addPictureProfile(_ sender: UIButton) {
+        
         self.pickerController = UIImagePickerController()
         self.pickerController!.delegate = self
         self.pickerController!.allowsEditing = true
@@ -88,29 +96,19 @@ extension DetailPersonController : UITableViewDataSource, UITableViewDelegate {
         case PERSON_INFO:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailPersonInfoCell.kIdentifier, for: indexPath) as! DetailPersonInfoCell
             
-            cell.nameProfile.text = person.name
-            cell.surnameProfile.text = person.surname
-            cell.niknameProfile.text = person.nikname
-            cell.mobbileProfile.text = person.mobile
-            
-            if let imageProfile = person.image {
-                cell.imageProfile.setImage(imageProfile, for: .normal)
-            }
+            cell.setup(withObject: person, withEditingMode: editingProfile)
             
             return cell
         case PERSON_ADDRESS:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailPersonAddressCell.kIdentifier, for: indexPath) as! DetailPersonAddressCell
             
-            cell.addressProfile.text = person.address
-            cell.capProfile.text = person.cap
-            cell.cityProfile.text = person.city
-            cell.countryProfile.text = person.country
+            cell.setup(withObject: person, withEditingMode: editingProfile)
             
             return cell
         case PERSON_EMAIL:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailPersonEmailCell.kIdentifier, for: indexPath) as! DetailPersonEmailCell
             
-            cell.emailProfile.text = person.email
+            cell.setup(withObject: person, withEditingMode: editingProfile)
             
             return cell
         default:

@@ -12,6 +12,14 @@ class DetailPersonInfoCell: UITableViewCell {
     
     static let kIdentifier = "DetailPersonInfoCell"
 
+    @IBOutlet var lineViews: [UIView]! {
+        didSet {
+            lineViews.forEach { (view) in
+                view.backgroundColor = .black
+            }
+        }
+    }
+    
     @IBOutlet weak var imageProfile: UIButton! {
         didSet {
             imageProfile.layer.cornerRadius = imageProfile.frame.width / 2
@@ -22,7 +30,7 @@ class DetailPersonInfoCell: UITableViewCell {
     @IBOutlet weak var surnameProfile: UITextField!
     @IBOutlet weak var nameProfile: UITextField!
     @IBOutlet weak var niknameProfile: UITextField!
-    @IBOutlet weak var mobbileProfile: UITextField!
+    @IBOutlet weak var mobileProfile: UITextField!
     
     
     
@@ -36,12 +44,38 @@ class DetailPersonInfoCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setup(withObject object : Person, withEditingMode edit : Bool) {
+        surnameProfile.text = object.surname
+        nameProfile.text = object.name
+        niknameProfile.text = object.nikname
+        mobileProfile.text = object.mobile
+        
+        if let imageProfile = object.image {
+            self.imageProfile.setImage(imageProfile, for: .normal)
+        }
+        
+        self.imageProfile.isUserInteractionEnabled = edit
+        
+        for lineView in lineViews {
+            lineView.isHidden = !edit
+        }
+        
+    }
 
 }
 
 class DetailPersonAddressCell: UITableViewCell {
     
     static let kIdentifier = "DetailPersonAddressCell"
+    
+    @IBOutlet var lineViews: [UIView]! {
+        didSet {
+            lineViews.forEach { (view) in
+                view.backgroundColor = .black
+            }
+        }
+    }
     
     @IBOutlet weak var addressProfile: UITextField!
     @IBOutlet weak var capProfile: UITextField!
@@ -59,9 +93,29 @@ class DetailPersonAddressCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setup(withObject object : Person, withEditingMode edit : Bool) {
+        addressProfile.text = object.address
+        capProfile.text = object.cap
+        cityProfile.text = object.city
+        countryProfile.text = object.country
+        
+        for lineView in lineViews {
+            lineView.isHidden = !edit
+        }
+        
+    }
+    
 }
 
 class DetailPersonEmailCell: UITableViewCell {
+    
+    @IBOutlet var lineViews: [UIView]! {
+        didSet {
+            lineViews.forEach { (view) in
+                view.backgroundColor = .black
+            }
+        }
+    }
     
     static let kIdentifier = "DetailPersonEmailCell"
     
@@ -76,6 +130,15 @@ class DetailPersonEmailCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    func setup(withObject object : Person, withEditingMode edit : Bool) {
+        emailProfile.text = object.email
+        
+        for lineView in lineViews {
+            lineView.isHidden = !edit
+        }
+        
     }
     
 }
