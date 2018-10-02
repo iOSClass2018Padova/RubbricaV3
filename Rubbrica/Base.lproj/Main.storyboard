@@ -388,13 +388,14 @@
                         <viewLayoutGuide key="safeArea" id="C4K-a1-wvo"/>
                     </view>
                     <navigationItem key="navigationItem" id="aRl-Ww-baG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="IEb-6g-zzd">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="IEb-6g-zzd">
                             <connections>
                                 <action selector="editAction:" destination="YNU-RB-k0f" id="ut3-7l-Q17"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editingBarButtonItem" destination="IEb-6g-zzd" id="Ji4-0k-GKF"/>
                         <outlet property="tableView" destination="Tsd-lx-L43" id="Om1-bR-ixT"/>
                     </connections>
                 </viewController>

@@ -16,6 +16,8 @@ class DetailPersonController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var editingBarButtonItem: UIBarButtonItem!
+    
     private var pickerController:UIImagePickerController?
     
     var person : Person!
@@ -23,17 +25,30 @@ class DetailPersonController: UIViewController {
     
     private var editingProfile : Bool = false
     
+    private var cancelBarButtonItem : UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        cancelBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelAction))
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    @IBAction func editAction(_ sender: Any) {
+    @IBAction func editAction(_ sender: UIBarButtonItem) {
+        
+        dismissEditing()
+    }
+    
+    @objc func cancelAction(_ sender: UIBarButtonItem) {
+        dismissEditing()
+    }
+    
+    func dismissEditing() {
         editingProfile = !editingProfile
+        
+        editingBarButtonItem.title = editingProfile ? "Save" : "Edit"
+        
+        self.navigationItem.leftBarButtonItem = editingProfile ? cancelBarButtonItem : nil
+        
         tableView.reloadData()
     }
     
