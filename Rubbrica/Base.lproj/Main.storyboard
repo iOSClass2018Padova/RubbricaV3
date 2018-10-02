@@ -130,7 +130,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="cur-yR-GA6"/>
                                                     </constraints>
                                                 </view>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nikname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-MV-I11">
+                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nikname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-MV-I11">
                                                     <rect key="frame" x="139" y="55" width="221" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="9HL-rw-qAV"/>
@@ -146,7 +146,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="rrV-ct-FKL"/>
                                                     </constraints>
                                                 </view>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EWj-bP-s9i">
+                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EWj-bP-s9i">
                                                     <rect key="frame" x="139" y="90" width="221" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="gJR-RU-XIQ"/>
@@ -173,7 +173,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="Wmp-lM-sm2"/>
                                                     </constraints>
                                                 </view>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8QJ-XM-kya">
+                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8QJ-XM-kya">
                                                     <rect key="frame" x="187" y="20" width="173" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Oys-uh-vxZ"/>
@@ -213,14 +213,14 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageProfile" destination="eWa-wD-T3V" id="9ZZ-Lg-mpR"/>
-                                            <outlet property="mobileProfile" destination="EWj-bP-s9i" id="HOA-7G-7cN"/>
-                                            <outlet property="nameProfile" destination="DPV-u5-Vvd" id="EdM-No-7ps"/>
-                                            <outlet property="niknameProfile" destination="5rd-MV-I11" id="0Vu-aY-PXU"/>
-                                            <outlet property="surnameProfile" destination="8QJ-XM-kya" id="umf-b0-Cgq"/>
                                             <outletCollection property="lineViews" destination="7EC-2a-OAG" collectionClass="NSMutableArray" id="hVA-Fu-rFZ"/>
                                             <outletCollection property="lineViews" destination="YQr-BV-74n" collectionClass="NSMutableArray" id="tq7-SY-DKy"/>
                                             <outletCollection property="lineViews" destination="OMH-IS-3tf" collectionClass="NSMutableArray" id="qzb-iS-nKb"/>
                                             <outletCollection property="lineViews" destination="Ftr-M7-tV2" collectionClass="NSMutableArray" id="dV6-wi-9Pa"/>
+                                            <outletCollection property="textFields" destination="DPV-u5-Vvd" collectionClass="NSMutableArray" id="Snn-2z-hTD"/>
+                                            <outletCollection property="textFields" destination="8QJ-XM-kya" collectionClass="NSMutableArray" id="Ozk-an-yoN"/>
+                                            <outletCollection property="textFields" destination="5rd-MV-I11" collectionClass="NSMutableArray" id="jMl-1Z-pFy"/>
+                                            <outletCollection property="textFields" destination="EWj-bP-s9i" collectionClass="NSMutableArray" id="z0x-iq-Vkv"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailPersonAddressCell" rowHeight="98" id="cU3-bq-EF2" customClass="DetailPersonAddressCell" customModule="Rubbrica" customModuleProvider="target">
@@ -253,7 +253,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="bFj-iL-hfW"/>
                                                     </constraints>
                                                 </view>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-3c-kO6">
+                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-3c-kO6">
                                                     <rect key="frame" x="15" y="57" width="152.5" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="66o-he-vfS"/>
@@ -269,7 +269,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="xdh-Qg-qb9"/>
                                                     </constraints>
                                                 </view>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cap" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vii-dF-XaP">
+                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cap" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vii-dF-XaP">
                                                     <rect key="frame" x="290" y="11" width="70" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Td0-ja-ucd"/>
@@ -286,7 +286,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="4dx-eK-Ytn"/>
                                                     </constraints>
                                                 </view>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nRU-sp-XfH">
+                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nRU-sp-XfH">
                                                     <rect key="frame" x="207.5" y="57" width="152.5" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="KTh-no-Fad"/>
@@ -323,14 +323,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addressProfile" destination="ekx-ge-8OB" id="uPz-fR-JyP"/>
-                                            <outlet property="capProfile" destination="vii-dF-XaP" id="Z6k-W5-Vij"/>
-                                            <outlet property="cityProfile" destination="R9g-3c-kO6" id="sdW-rO-mfy"/>
-                                            <outlet property="countryProfile" destination="nRU-sp-XfH" id="zMm-Ec-6pH"/>
                                             <outletCollection property="lineViews" destination="iPr-Al-59P" collectionClass="NSMutableArray" id="WrK-1o-6Pp"/>
                                             <outletCollection property="lineViews" destination="FK3-0z-tgp" collectionClass="NSMutableArray" id="5Vi-yO-4EX"/>
                                             <outletCollection property="lineViews" destination="MNi-pE-1Dc" collectionClass="NSMutableArray" id="I0i-nl-zMK"/>
                                             <outletCollection property="lineViews" destination="1Rt-xT-4xc" collectionClass="NSMutableArray" id="3Nx-uX-IWV"/>
+                                            <outletCollection property="textFields" destination="ekx-ge-8OB" collectionClass="NSMutableArray" id="drT-x6-sqB"/>
+                                            <outletCollection property="textFields" destination="vii-dF-XaP" collectionClass="NSMutableArray" id="Doi-9i-9MV"/>
+                                            <outletCollection property="textFields" destination="R9g-3c-kO6" collectionClass="NSMutableArray" id="8o5-Hx-E4L"/>
+                                            <outletCollection property="textFields" destination="nRU-sp-XfH" collectionClass="NSMutableArray" id="blO-NS-d1P"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailPersonEmailCell" rowHeight="84" id="WOj-ie-wTW" customClass="DetailPersonEmailCell" customModule="Rubbrica" customModuleProvider="target">
@@ -367,8 +367,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="emailProfile" destination="0mc-be-gTx" id="XCU-Fz-KQK"/>
                                             <outletCollection property="lineViews" destination="9WD-SE-Qe6" collectionClass="NSMutableArray" id="9dv-nI-Pc0"/>
+                                            <outletCollection property="textFields" destination="0mc-be-gTx" collectionClass="NSMutableArray" id="ytd-iE-zp5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -10,15 +10,18 @@ import UIKit
 
 class DetailPersonInfoCell: UITableViewCell {
     
-    static let kIdentifier = "DetailPersonInfoCell"
-
-    @IBOutlet var lineViews: [UIView]! {
-        didSet {
-            lineViews.forEach { (view) in
-                view.backgroundColor = .black
-            }
-        }
+    enum TextFieldType : Int {
+        case name = 0
+        case surname
+        case nikname
+        case mobile
     }
+    
+    static let kIdentifier = "DetailPersonInfoCell"
+    
+    @IBOutlet var textFields: [UITextField]!
+    
+    @IBOutlet var lineViews: [UIView]!
     
     @IBOutlet weak var imageProfile: UIButton! {
         didSet {
@@ -27,10 +30,6 @@ class DetailPersonInfoCell: UITableViewCell {
             imageProfile.clipsToBounds = true
         }
     }
-    @IBOutlet weak var surnameProfile: UITextField!
-    @IBOutlet weak var nameProfile: UITextField!
-    @IBOutlet weak var niknameProfile: UITextField!
-    @IBOutlet weak var mobileProfile: UITextField!
     
     
     
@@ -38,18 +37,29 @@ class DetailPersonInfoCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     func setup(withObject object : Person, withEditingMode edit : Bool) {
-        surnameProfile.text = object.surname
-        nameProfile.text = object.name
-        niknameProfile.text = object.nikname
-        mobileProfile.text = object.mobile
+        
+        for textField in textFields {
+            switch textField.tag {
+            case TextFieldType.name.rawValue:
+                textField.text = object.name
+            case TextFieldType.surname.rawValue:
+                textField.text = object.surname
+            case TextFieldType.nikname.rawValue:
+                textField.text = object.nikname
+            case TextFieldType.mobile.rawValue:
+                textField.text = object.mobile
+            default:
+                break
+            }
+        }
         
         if let imageProfile = object.image {
             self.imageProfile.setImage(imageProfile, for: .normal)
@@ -61,26 +71,28 @@ class DetailPersonInfoCell: UITableViewCell {
             lineView.isHidden = !edit
         }
         
+        for textField in textFields {
+            textField.isEnabled = edit
+        }
+        
     }
-
+    
 }
 
 class DetailPersonAddressCell: UITableViewCell {
     
-    static let kIdentifier = "DetailPersonAddressCell"
-    
-    @IBOutlet var lineViews: [UIView]! {
-        didSet {
-            lineViews.forEach { (view) in
-                view.backgroundColor = .black
-            }
-        }
+    enum TextFieldType : Int {
+        case address = 0
+        case cap
+        case city
+        case country
     }
     
-    @IBOutlet weak var addressProfile: UITextField!
-    @IBOutlet weak var capProfile: UITextField!
-    @IBOutlet weak var cityProfile: UITextField!
-    @IBOutlet weak var countryProfile: UITextField!
+    static let kIdentifier = "DetailPersonAddressCell"
+    
+    @IBOutlet var textFields: [UITextField]!
+    
+    @IBOutlet var lineViews: [UIView]!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -94,13 +106,28 @@ class DetailPersonAddressCell: UITableViewCell {
     }
     
     func setup(withObject object : Person, withEditingMode edit : Bool) {
-        addressProfile.text = object.address
-        capProfile.text = object.cap
-        cityProfile.text = object.city
-        countryProfile.text = object.country
+        
+        for textField in textFields {
+            switch textField.tag {
+            case TextFieldType.address.rawValue:
+                textField.text = object.address
+            case TextFieldType.cap.rawValue:
+                textField.text = object.cap
+            case TextFieldType.city.rawValue:
+                textField.text = object.city
+            case TextFieldType.country.rawValue:
+                textField.text = object.country
+            default:
+                break
+            }
+        }
         
         for lineView in lineViews {
             lineView.isHidden = !edit
+        }
+        
+        for textField in textFields {
+            textField.isEnabled = edit
         }
         
     }
@@ -109,17 +136,15 @@ class DetailPersonAddressCell: UITableViewCell {
 
 class DetailPersonEmailCell: UITableViewCell {
     
-    @IBOutlet var lineViews: [UIView]! {
-        didSet {
-            lineViews.forEach { (view) in
-                view.backgroundColor = .black
-            }
-        }
+    enum TextFieldType : Int {
+        case email = 0
     }
     
-    static let kIdentifier = "DetailPersonEmailCell"
+    @IBOutlet var textFields: [UITextField]!
     
-    @IBOutlet weak var emailProfile: UITextField!
+    @IBOutlet var lineViews: [UIView]!
+    
+    static let kIdentifier = "DetailPersonEmailCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -133,10 +158,22 @@ class DetailPersonEmailCell: UITableViewCell {
     }
     
     func setup(withObject object : Person, withEditingMode edit : Bool) {
-        emailProfile.text = object.email
+        
+        for textField in textFields {
+            switch textField.tag {
+            case TextFieldType.email.rawValue:
+                textField.text = object.email
+            default:
+                break
+            }
+        }
         
         for lineView in lineViews {
             lineView.isHidden = !edit
+        }
+        
+        for textField in textFields {
+            textField.isEnabled = edit
         }
         
     }
