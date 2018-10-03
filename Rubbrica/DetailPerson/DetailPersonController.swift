@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DetailPersonEditDelegate {
+    func editedPerson(person: Person)
+}
+
 class DetailPersonController: UIViewController {
     
     private let PERSON_INFO = 0
@@ -24,6 +28,7 @@ class DetailPersonController: UIViewController {
     var delegate : ListPeopleDelegate?
     
     private var editingProfile : Bool = false
+    private var editedPerson: Person!
     
     private var cancelBarButtonItem : UIBarButtonItem!
     
@@ -33,7 +38,12 @@ class DetailPersonController: UIViewController {
         cancelBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelAction))
         
     }
+    
     @IBAction func editAction(_ sender: UIBarButtonItem) {
+        
+        if editingProfile {
+            person = editedPerson
+        }
         
         dismissEditing()
     }
@@ -91,6 +101,15 @@ class DetailPersonController: UIViewController {
     
 }
 
+extension DetailPersonController: DetailPersonEditDelegate {
+    
+    func editedPerson(person: Person) {
+        editedPerson = person
+    }
+    
+    
+}
+
 extension DetailPersonController : UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     
@@ -111,6 +130,7 @@ extension DetailPersonController : UITableViewDataSource, UITableViewDelegate {
         case PERSON_INFO:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailPersonInfoCell.kIdentifier, for: indexPath) as! DetailPersonInfoCell
             
+            cell.delegate = self
             cell.setup(withObject: person, withEditingMode: editingProfile)
             
             return cell

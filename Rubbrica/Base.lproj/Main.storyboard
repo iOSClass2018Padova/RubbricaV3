@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -122,6 +123,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingTextAction:" destination="mVm-kJ-1Ol" eventType="editingChanged" id="AT4-Zx-3rc"/>
+                                                    </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQr-BV-74n" userLabel="View Nikname">
                                                     <rect key="frame" x="139" y="84" width="221" height="1"/>
@@ -138,6 +142,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingTextAction:" destination="mVm-kJ-1Ol" eventType="editingChanged" id="nUj-Iz-f20"/>
+                                                    </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OMH-IS-3tf" userLabel="View Mobile">
                                                     <rect key="frame" x="139" y="119" width="221" height="1"/>
@@ -154,6 +161,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingTextAction:" destination="mVm-kJ-1Ol" eventType="editingChanged" id="gzr-kO-AWB"/>
+                                                    </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWa-wD-T3V">
                                                     <rect key="frame" x="19" y="20" width="100" height="100"/>
@@ -181,6 +191,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingTextAction:" destination="mVm-kJ-1Ol" eventType="editingChanged" id="w4a-sL-ZPE"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>

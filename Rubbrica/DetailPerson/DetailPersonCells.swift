@@ -19,6 +19,10 @@ class DetailPersonInfoCell: UITableViewCell {
     
     static let kIdentifier = "DetailPersonInfoCell"
     
+    private var editingPerson : Person!
+    
+    var delegate: DetailPersonEditDelegate?
+    
     @IBOutlet var textFields: [UITextField]!
     
     @IBOutlet var lineViews: [UIView]!
@@ -45,6 +49,8 @@ class DetailPersonInfoCell: UITableViewCell {
     }
     
     func setup(withObject object : Person, withEditingMode edit : Bool) {
+        
+        editingPerson = object
         
         for textField in textFields {
             switch textField.tag {
@@ -73,8 +79,35 @@ class DetailPersonInfoCell: UITableViewCell {
         
         for textField in textFields {
             textField.isEnabled = edit
+            textField.delegate = edit ? self : nil
         }
         
+    }
+    @IBAction func editingTextAction(_ sender: UITextField) {
+        switch sender.tag {
+        case TextFieldType.name.rawValue:
+            editingPerson.name = sender.text
+        case TextFieldType.surname.rawValue:
+            editingPerson.surname = sender.text
+        case TextFieldType.nikname.rawValue:
+            editingPerson.nikname = sender.text
+        case TextFieldType.mobile.rawValue:
+            editingPerson.mobile = sender.text
+        default:
+            break
+        }
+        
+        delegate?.editedPerson(person: editingPerson)
+        
+    }
+    
+    
+}
+
+extension DetailPersonInfoCell: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
     }
     
 }
@@ -87,6 +120,8 @@ class DetailPersonAddressCell: UITableViewCell {
         case city
         case country
     }
+    
+    private var editingPerson : Person!
     
     static let kIdentifier = "DetailPersonAddressCell"
     
@@ -139,6 +174,8 @@ class DetailPersonEmailCell: UITableViewCell {
     enum TextFieldType : Int {
         case email = 0
     }
+    
+    private var editingPerson : Person!
     
     @IBOutlet var textFields: [UITextField]!
     

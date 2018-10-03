@@ -25,6 +25,7 @@ class Person: NSObject {
     var email : String?
     
     init(name : String, surname: String, mobile: String, image: UIImage? = nil, nikname: String? = nil, address: String? = nil, cap: String? = nil, city: String? = nil, country: String? = nil, email: String? = nil) {
+        super.init()
         
         self.name = name
         self.surname = surname
@@ -39,6 +40,7 @@ class Person: NSObject {
         self.country = country
         
         self.email = email
+        
         
     }
     
