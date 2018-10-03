@@ -12,8 +12,8 @@ class Person: NSObject {
     
     var image : UIImage?
     
-    var name : String!
-    var surname : String!
+    var name : String?
+    var surname : String?
     var nikname : String?
     
     var address : String?
@@ -21,10 +21,10 @@ class Person: NSObject {
     var city : String?
     var country : String?
     
-    var mobile : String!
+    var mobile : String?
     var email : String?
     
-    init(name : String, surname: String, mobile: String, image: UIImage? = nil, nikname: String? = nil, address: String? = nil, cap: String? = nil, city: String? = nil, country: String? = nil, email: String? = nil) {
+    init(name : String? = nil, surname: String? = nil, mobile: String? = nil, image: UIImage? = nil, nikname: String? = nil, address: String? = nil, cap: String? = nil, city: String? = nil, country: String? = nil, email: String? = nil) {
         super.init()
         
         self.name = name
@@ -45,7 +45,12 @@ class Person: NSObject {
     }
     
     func fullName() -> String {
-        return name + " " + surname
+        var fullName = ""
+        
+        fullName += (self.name != nil) ? self.name! + " " : ""
+        fullName += self.surname ?? ""
+        
+        return fullName
     }
 
 }

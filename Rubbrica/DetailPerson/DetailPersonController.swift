@@ -17,6 +17,7 @@ class DetailPersonController: UIViewController {
     private let PERSON_INFO = 0
     private let PERSON_ADDRESS = 1
     private let PERSON_EMAIL = 2
+    private let PERSON_REMOVE = 3
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,11 +25,13 @@ class DetailPersonController: UIViewController {
     
     private var pickerController:UIImagePickerController?
     
-    var person : Person!
+    var person : Person = Person()
     var delegate : ListPeopleDelegate?
     
-    private var editingProfile : Bool = false
+    var editingProfile : Bool = false
     private var editedPerson: Person?
+    
+    private lazy var addingNewElement : Bool = false
     
     private var cancelBarButtonItem : UIBarButtonItem!
     
@@ -37,16 +40,42 @@ class DetailPersonController: UIViewController {
         
         cancelBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelAction))
         
+        editingBarButtonItem.title = editingProfile ? "Add" : "Edit"
+        addingNewElement = editingProfile
+        
+        editedPerson = person
+        
     }
     
     @IBAction func editAction(_ sender: UIBarButtonItem) {
         
-        if editingProfile, let edited = editedPerson {
-            person = edited
+        if editingProfile {
+            
+            person = editedPerson ?? Person()
+            
+            guard (person.name != nil && !person.name!.isEmpty) || (person.surname != nil && !person.surname!.isEmpty) else {
+                
+                let alert = UIAlertController(title: "Attenzione", message: "O il Nome o il Cognome sono obbligatori", preferredStyle: .alert)
+                let okay = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                alert.addAction(okay)
+                self.present(alert, animated: true, completion: nil)
+                
+                return }
+            
+            delegate?.addPerson(person: person)
             delegate?.reloadTableView()
+            
+            if addingNewElement {
+                navigationController?.popViewController(animated: true)
+            }
         }
         
         dismissEditing()
+        
+    }
+    
+    @IBAction func removeAction(_ sender: Any) {
+        
     }
     
     @objc func cancelAction(_ sender: UIBarButtonItem) {
@@ -120,7 +149,11 @@ extension DetailPersonController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
+        if !addingNewElement && editingProfile {
+            return 4
+        }
+        
         return 3
     }
     
@@ -149,6 +182,9 @@ extension DetailPersonController : UITableViewDataSource, UITableViewDelegate {
             cell.setup(withObject: person, withEditingMode: editingProfile)
             
             return cell
+        case PERSON_REMOVE:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DetailPersonRemoveCell.kIdentifier, for: indexPath) as! DetailPersonRemoveCell
+            return cell
         default:
             return UITableViewCell()
         }
@@ -163,6 +199,8 @@ extension DetailPersonController : UITableViewDataSource, UITableViewDelegate {
             return 98
         case PERSON_EMAIL:
             return 84
+        case PERSON_REMOVE:
+            return 70
         default:
             return 0
         }

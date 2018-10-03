@@ -272,3 +272,22 @@ extension DetailPersonEmailCell: UITextFieldDelegate {
     }
     
 }
+
+class DetailPersonRemoveCell: UITableViewCell {
+    
+    var delegate: DetailPersonEditDelegate?
+    
+    static let kIdentifier = "DetailPersonRemoveCell"
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+}

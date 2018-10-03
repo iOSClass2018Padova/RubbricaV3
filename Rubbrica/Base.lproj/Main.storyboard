@@ -76,7 +76,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="D5j-g9-Gzj"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uZi-9j-riO">
                             <connections>
-                                <segue destination="SaN-GS-gEW" kind="presentation" identifier="addPersonSegue" id="TOO-Fy-J1I"/>
+                                <action selector="addPersonAction:" destination="Dc4-Dv-NQg" id="k8A-dL-erz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -399,6 +399,33 @@
                                             <outletCollection property="textFields" destination="0mc-be-gTx" collectionClass="NSMutableArray" id="ytd-iE-zp5"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailPersonRemoveCell" rowHeight="84" id="5b6-ac-hfS" customClass="DetailPersonRemoveCell" customModule="Rubbrica" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="350" width="375" height="84"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5b6-ac-hfS" id="o7J-mp-xMx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JnX-xb-nX8">
+                                                    <rect key="frame" x="45" y="17" width="285" height="50"/>
+                                                    <color key="backgroundColor" red="0.87640637587123282" green="0.1451446246561644" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="89i-R7-kyH"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Rimuovi"/>
+                                                    <connections>
+                                                        <action selector="removeAction:" destination="YNU-RB-k0f" eventType="touchUpInside" id="idp-u7-acZ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JnX-xb-nX8" firstAttribute="centerY" secondItem="o7J-mp-xMx" secondAttribute="centerY" id="3ur-eu-k04"/>
+                                                <constraint firstItem="JnX-xb-nX8" firstAttribute="leading" secondItem="o7J-mp-xMx" secondAttribute="leadingMargin" constant="30" id="NDU-D9-kNj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="JnX-xb-nX8" secondAttribute="trailing" constant="30" id="gwX-UQ-uoc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="YNU-RB-k0f" id="4uu-d4-S2K"/>
@@ -430,53 +457,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13U-k2-9sS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1461.5999999999999" y="-84.107946026986511"/>
-        </scene>
-        <!--Add Person Controller-->
-        <scene sceneID="G5a-kL-Dbu">
-            <objects>
-                <viewController id="SaN-GS-gEW" customClass="AddPersonController" customModule="Rubbrica" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oAe-GN-N9O">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hgy-fc-yng">
-                                <rect key="frame" x="35" y="90" width="305" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOn-wv-BZd">
-                                <rect key="frame" x="35" y="313.5" width="80" height="40"/>
-                                <color key="backgroundColor" red="0.82745098039999998" green="0.30588235289999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="0Pc-xB-61q"/>
-                                    <constraint firstAttribute="height" constant="40" id="hBe-d9-JpD"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelAction:" destination="SaN-GS-gEW" eventType="touchUpInside" id="YYJ-d3-ahz"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Hgy-fc-yng" firstAttribute="top" secondItem="ylL-9L-Ty7" secondAttribute="top" constant="70" id="5uE-8F-0U4"/>
-                            <constraint firstItem="Hgy-fc-yng" firstAttribute="leading" secondItem="ylL-9L-Ty7" secondAttribute="leading" constant="35" id="GG3-rJ-rKy"/>
-                            <constraint firstItem="ylL-9L-Ty7" firstAttribute="trailing" secondItem="Hgy-fc-yng" secondAttribute="trailing" constant="35" id="Nfy-9e-Wv6"/>
-                            <constraint firstItem="WOn-wv-BZd" firstAttribute="leading" secondItem="ylL-9L-Ty7" secondAttribute="leading" constant="35" id="QaW-4k-CYX"/>
-                            <constraint firstItem="WOn-wv-BZd" firstAttribute="centerY" secondItem="oAe-GN-N9O" secondAttribute="centerY" id="x4d-KX-0G6"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ylL-9L-Ty7"/>
-                    </view>
-                    <connections>
-                        <outlet property="cancelButton" destination="WOn-wv-BZd" id="W1c-BN-rVz"/>
-                        <outlet property="namePerson" destination="Hgy-fc-yng" id="tGI-4m-EPq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YUp-vH-LzF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="760.79999999999995" y="-743.47826086956525"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gSq-ZV-Rr1">

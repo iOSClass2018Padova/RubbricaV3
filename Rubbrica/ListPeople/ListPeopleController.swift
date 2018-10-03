@@ -9,8 +9,8 @@
 import UIKit
 
 protocol ListPeopleDelegate {
-    func addPerson(name: String?)
     func reloadTableView()
+    func addPerson(person : Person)
 }
 
 class ListPeopleController: UIViewController {
@@ -19,32 +19,32 @@ class ListPeopleController: UIViewController {
     private var listOfPerson : [Person] = []
     
     private var selectedContact : Person?
+    
+    private var addNewPerson : Bool = false
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    @IBAction func addPersonAction(_ sender: UIBarButtonItem) {
+        selectedContact = nil
+        addNewPerson = true
+        self.performSegue(withIdentifier: "detailContactSegue", sender: self)
+    }
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
                 switch segue.identifier {
-                case "addPersonSegue":
-                    if let destinationController = segue.destination as? AddPersonController {
-                        destinationController.delegate = self
-                    }
                 case "detailContactSegue":
-                    if let destinationController = segue.destination as? DetailPersonController, let selectedPerson = selectedContact {
-                        destinationController.person = selectedPerson
+                    if let destinationController = segue.destination as? DetailPersonController {
+                        destinationController.person = selectedContact ?? Person()
+                        
+                        destinationController.editingProfile = addNewPerson
+                        
                         destinationController.delegate = self
                     }
                 default:
@@ -97,16 +97,16 @@ extension ListPeopleController : UITableViewDelegate, UITableViewDataSource {
 extension ListPeopleController : ListPeopleDelegate {
     
     
-    func reloadTableView() {
-        tableView.reloadData()
+    func addPerson(person : Person) {
+        if addNewPerson {
+            listOfPerson.append(person)
+            addNewPerson = false
+        }
     }
     
     
-    func addPerson(name: String?) {
-        if let namePerson = name {
-            listOfPerson.append(Person(name: namePerson, surname: "cognome", mobile: "3439824023"))
-            tableView.reloadData()
-        }
+    func reloadTableView() {
+        tableView.reloadData()
     }
     
     

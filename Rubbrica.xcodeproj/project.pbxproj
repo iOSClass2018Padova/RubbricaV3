@@ -16,7 +16,6 @@
 		7B336CF721592B210075F384 /* ListPeopleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B336CF621592B210075F384 /* ListPeopleController.swift */; };
 		7B336CF921592B350075F384 /* ListPeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B336CF821592B350075F384 /* ListPeopleCell.swift */; };
 		7B336CFB21592C050075F384 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B336CFA21592C050075F384 /* Person.swift */; };
-		7B336CFD21592F8F0075F384 /* AddPersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B336CFC21592F8F0075F384 /* AddPersonController.swift */; };
 		7BF497A3215A2C00001995DC /* DetailPersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF497A2215A2C00001995DC /* DetailPersonController.swift */; };
 		7BF497A5215A2C29001995DC /* DetailPersonCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF497A4215A2C29001995DC /* DetailPersonCells.swift */; };
 /* End PBXBuildFile section */
@@ -54,7 +53,6 @@
 		7B336CF621592B210075F384 /* ListPeopleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPeopleController.swift; sourceTree = "<group>"; };
 		7B336CF821592B350075F384 /* ListPeopleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPeopleCell.swift; sourceTree = "<group>"; };
 		7B336CFA21592C050075F384 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		7B336CFC21592F8F0075F384 /* AddPersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonController.swift; sourceTree = "<group>"; };
 		7BF497A2215A2C00001995DC /* DetailPersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonController.swift; sourceTree = "<group>"; };
 		7BF497A4215A2C29001995DC /* DetailPersonCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonCells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,7 +108,6 @@
 				7B336CC821592AB60075F384 /* AppDelegate.swift */,
 				7BF497A0215A2B8B001995DC /* ListPeople */,
 				7B336CFA21592C050075F384 /* Person.swift */,
-				7B336CFC21592F8F0075F384 /* AddPersonController.swift */,
 				7BF497A1215A2BE1001995DC /* DetailPerson */,
 				7B336CCC21592AB60075F384 /* Main.storyboard */,
 				7B336CCF21592AB70075F384 /* Assets.xcassets */,
@@ -288,7 +285,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B336CF721592B210075F384 /* ListPeopleController.swift in Sources */,
-				7B336CFD21592F8F0075F384 /* AddPersonController.swift in Sources */,
 				7B336CC921592AB60075F384 /* AppDelegate.swift in Sources */,
 				7BF497A5215A2C29001995DC /* DetailPersonCells.swift in Sources */,
 				7B336CFB21592C050075F384 /* Person.swift in Sources */,
