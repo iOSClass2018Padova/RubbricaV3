@@ -258,6 +258,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingTextAction:" destination="cU3-bq-EF2" eventType="editingChanged" id="GB5-ZQ-PUH"/>
+                                                    </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FK3-0z-tgp" userLabel="View City">
                                                     <rect key="frame" x="15" y="86" width="152.5" height="1"/>
@@ -274,6 +277,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingTextAction:" destination="cU3-bq-EF2" eventType="editingChanged" id="d1w-Xp-ZEb"/>
+                                                    </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNi-pE-1Dc" userLabel="View Cap">
                                                     <rect key="frame" x="290" y="40" width="70" height="1"/>
@@ -291,6 +297,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingTextAction:" destination="cU3-bq-EF2" eventType="editingChanged" id="6Qp-hi-cxc"/>
+                                                    </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Rt-xT-4xc" userLabel="View Country">
                                                     <rect key="frame" x="207.5" y="86" width="152.5" height="1"/>
@@ -307,6 +316,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingTextAction:" destination="cU3-bq-EF2" eventType="editingChanged" id="6c5-wp-b4x"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -368,6 +380,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingTextAction:" destination="WOj-ie-wTW" eventType="editingChanged" id="HYL-GH-b26"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>

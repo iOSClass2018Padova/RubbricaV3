@@ -123,6 +123,8 @@ class DetailPersonAddressCell: UITableViewCell {
     
     private var editingPerson : Person!
     
+    var delegate: DetailPersonEditDelegate?
+    
     static let kIdentifier = "DetailPersonAddressCell"
     
     @IBOutlet var textFields: [UITextField]!
@@ -141,6 +143,8 @@ class DetailPersonAddressCell: UITableViewCell {
     }
     
     func setup(withObject object : Person, withEditingMode edit : Bool) {
+        
+        editingPerson = object
         
         for textField in textFields {
             switch textField.tag {
@@ -163,8 +167,35 @@ class DetailPersonAddressCell: UITableViewCell {
         
         for textField in textFields {
             textField.isEnabled = edit
+            textField.delegate = edit ? self : nil
         }
         
+    }
+    
+    @IBAction func editingTextAction(_ sender: UITextField) {
+        switch sender.tag {
+        case TextFieldType.address.rawValue:
+            editingPerson.address = sender.text
+        case TextFieldType.cap.rawValue:
+            editingPerson.cap = sender.text
+        case TextFieldType.city.rawValue:
+            editingPerson.city = sender.text
+        case TextFieldType.country.rawValue:
+            editingPerson.country = sender.text
+        default:
+            break
+        }
+        
+        delegate?.editedPerson(person: editingPerson)
+        
+    }
+    
+}
+
+extension DetailPersonAddressCell: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
     }
     
 }
@@ -174,6 +205,8 @@ class DetailPersonEmailCell: UITableViewCell {
     enum TextFieldType : Int {
         case email = 0
     }
+    
+    var delegate: DetailPersonEditDelegate?
     
     private var editingPerson : Person!
     
@@ -196,6 +229,8 @@ class DetailPersonEmailCell: UITableViewCell {
     
     func setup(withObject object : Person, withEditingMode edit : Bool) {
         
+        editingPerson = object
+        
         for textField in textFields {
             switch textField.tag {
             case TextFieldType.email.rawValue:
@@ -211,8 +246,29 @@ class DetailPersonEmailCell: UITableViewCell {
         
         for textField in textFields {
             textField.isEnabled = edit
+            textField.delegate = edit ? self : nil
         }
         
+    }
+    
+    @IBAction func editingTextAction(_ sender: UITextField) {
+        switch sender.tag {
+        case TextFieldType.email.rawValue:
+            editingPerson.email = sender.text
+        default:
+            break
+        }
+        
+        delegate?.editedPerson(person: editingPerson)
+        
+    }
+    
+}
+
+extension DetailPersonEmailCell: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
     }
     
 }

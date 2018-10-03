@@ -28,7 +28,7 @@ class DetailPersonController: UIViewController {
     var delegate : ListPeopleDelegate?
     
     private var editingProfile : Bool = false
-    private var editedPerson: Person!
+    private var editedPerson: Person?
     
     private var cancelBarButtonItem : UIBarButtonItem!
     
@@ -41,8 +41,9 @@ class DetailPersonController: UIViewController {
     
     @IBAction func editAction(_ sender: UIBarButtonItem) {
         
-        if editingProfile {
-            person = editedPerson
+        if editingProfile, let edited = editedPerson {
+            person = edited
+            delegate?.reloadTableView()
         }
         
         dismissEditing()
@@ -137,12 +138,14 @@ extension DetailPersonController : UITableViewDataSource, UITableViewDelegate {
         case PERSON_ADDRESS:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailPersonAddressCell.kIdentifier, for: indexPath) as! DetailPersonAddressCell
             
+            cell.delegate = self
             cell.setup(withObject: person, withEditingMode: editingProfile)
             
             return cell
         case PERSON_EMAIL:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailPersonEmailCell.kIdentifier, for: indexPath) as! DetailPersonEmailCell
             
+            cell.delegate = self
             cell.setup(withObject: person, withEditingMode: editingProfile)
             
             return cell
