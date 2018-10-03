@@ -62,8 +62,11 @@ class DetailPersonController: UIViewController {
                 
                 return }
             
-            delegate?.addPerson(person: person)
-            delegate?.reloadTableView()
+            if addingNewElement {
+                delegate?.addPerson(person: person)
+            } else {
+                delegate?.reloadContactCell()
+            }
             
             if addingNewElement {
                 navigationController?.popViewController(animated: true)
@@ -75,6 +78,16 @@ class DetailPersonController: UIViewController {
     }
     
     @IBAction func removeAction(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Rimuovi Contatto", message: "Sei sicuro di rimuovere questo contatto?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        let okay = UIAlertAction(title: "Si", style: .default) { (alert) in
+            self.delegate?.removePerson(person: self.person)
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okay)
+        self.present(alert, animated: true, completion: nil)
         
     }
     
@@ -232,7 +245,7 @@ extension DetailPersonController: UIImagePickerControllerDelegate, UINavigationC
         
         person.image = image
         tableView.reloadRows(at: [IndexPath(item: 0, section: 0)], with: .automatic)
-        delegate?.reloadTableView()
+        delegate?.reloadContactCell()
         self.dismiss(animated: true, completion: nil)
     }
 }

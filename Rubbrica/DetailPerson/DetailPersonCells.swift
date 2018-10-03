@@ -275,8 +275,6 @@ extension DetailPersonEmailCell: UITextFieldDelegate {
 
 class DetailPersonRemoveCell: UITableViewCell {
     
-    var delegate: DetailPersonEditDelegate?
-    
     static let kIdentifier = "DetailPersonRemoveCell"
     
     override func awakeFromNib() {

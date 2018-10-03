@@ -9,8 +9,9 @@
 import UIKit
 
 protocol ListPeopleDelegate {
-    func reloadTableView()
+    func reloadContactCell()
     func addPerson(person : Person)
+    func removePerson(person : Person)
 }
 
 class ListPeopleController: UIViewController {
@@ -19,6 +20,7 @@ class ListPeopleController: UIViewController {
     private var listOfPerson : [Person] = []
     
     private var selectedContact : Person?
+    private var selectedIndexPath : IndexPath!
     
     private var addNewPerson : Bool = false
 
@@ -88,8 +90,10 @@ extension ListPeopleController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
         selectedContact = listOfPerson[indexPath.row]
         self.performSegue(withIdentifier: "detailContactSegue", sender: self)
+        
     }
     
 }
@@ -97,17 +101,23 @@ extension ListPeopleController : UITableViewDelegate, UITableViewDataSource {
 extension ListPeopleController : ListPeopleDelegate {
     
     
+    func removePerson(person: Person) {
+        listOfPerson.remove(at: selectedIndexPath.row)
+        tableView.deleteRows(at: [selectedIndexPath], with: .automatic)
+    }
+    
     func addPerson(person : Person) {
         if addNewPerson {
             listOfPerson.append(person)
+            tableView.insertRows(at: [IndexPath(item: listOfPerson.count - 1, section: 0)], with: .automatic)
             addNewPerson = false
         }
     }
     
-    
-    func reloadTableView() {
-        tableView.reloadData()
+    func reloadContactCell() {
+        tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
     }
+    
     
     
     
