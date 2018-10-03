@@ -80,6 +80,8 @@ extension ListPeopleController : UITableViewDelegate, UITableViewDataSource {
         
         if let imageProfile = listOfPerson[indexPath.row].image {
             cell.imageProfile.image = imageProfile
+        } else {
+            cell.imageProfile.image = UIImage(named: "Placeholder-image")
         }
         
         return cell
@@ -90,6 +92,7 @@ extension ListPeopleController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        addNewPerson = false
         selectedIndexPath = indexPath
         selectedContact = listOfPerson[indexPath.row]
         self.performSegue(withIdentifier: "detailContactSegue", sender: self)
