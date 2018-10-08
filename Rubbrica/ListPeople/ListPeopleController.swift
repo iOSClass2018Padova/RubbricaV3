@@ -19,6 +19,8 @@ class ListPeopleController: UIViewController {
     
     private var listOfPerson : [Person] = []
     
+    var er : String!
+    
     private var selectedContact : Person?
     private var selectedIndexPath : IndexPath!
     
