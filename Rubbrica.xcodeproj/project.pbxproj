@@ -18,6 +18,7 @@
 		7B336CFB21592C050075F384 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B336CFA21592C050075F384 /* Person.swift */; };
 		7BF497A3215A2C00001995DC /* DetailPersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF497A2215A2C00001995DC /* DetailPersonController.swift */; };
 		7BF497A5215A2C29001995DC /* DetailPersonCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF497A4215A2C29001995DC /* DetailPersonCells.swift */; };
+		B64A1FF7C7668CA923D8B9B4 /* Pods_Rubbrica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F890D4CB8FC3C39FFB3BA141 /* Pods_Rubbrica.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E7A2A445E590CC29AC24425 /* Pods-Rubbrica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rubbrica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rubbrica/Pods-Rubbrica.release.xcconfig"; sourceTree = "<group>"; };
 		7B336CC521592AB50075F384 /* Rubbrica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rubbrica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B336CC821592AB60075F384 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B336CCD21592AB60075F384 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,6 +57,8 @@
 		7B336CFA21592C050075F384 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		7BF497A2215A2C00001995DC /* DetailPersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonController.swift; sourceTree = "<group>"; };
 		7BF497A4215A2C29001995DC /* DetailPersonCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonCells.swift; sourceTree = "<group>"; };
+		F70810D7C60824DA9E48E387 /* Pods-Rubbrica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rubbrica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rubbrica/Pods-Rubbrica.debug.xcconfig"; sourceTree = "<group>"; };
+		F890D4CB8FC3C39FFB3BA141 /* Pods_Rubbrica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rubbrica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B64A1FF7C7668CA923D8B9B4 /* Pods_Rubbrica.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C15E2E311F2C634D1AE8B7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F890D4CB8FC3C39FFB3BA141 /* Pods_Rubbrica.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7B336CBC21592AB50075F384 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +102,8 @@
 				7B336CDC21592AB70075F384 /* RubbricaTests */,
 				7B336CE721592AB70075F384 /* RubbricaUITests */,
 				7B336CC621592AB60075F384 /* Products */,
+				8D80385910138CDE48E7BCC4 /* Pods */,
+				2C15E2E311F2C634D1AE8B7B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +176,15 @@
 			path = DetailPerson;
 			sourceTree = "<group>";
 		};
+		8D80385910138CDE48E7BCC4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F70810D7C60824DA9E48E387 /* Pods-Rubbrica.debug.xcconfig */,
+				2E7A2A445E590CC29AC24425 /* Pods-Rubbrica.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B336CED21592AB70075F384 /* Build configuration list for PBXNativeTarget "Rubbrica" */;
 			buildPhases = (
+				A1F225BDF6362605A15541B8 /* [CP] Check Pods Manifest.lock */,
 				7B336CC121592AB50075F384 /* Sources */,
 				7B336CC221592AB50075F384 /* Frameworks */,
 				7B336CC321592AB50075F384 /* Resources */,
+				B019215B2F6B3110FDA0A97B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -286,6 +312,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A1F225BDF6362605A15541B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rubbrica-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B019215B2F6B3110FDA0A97B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Rubbrica/Pods-Rubbrica-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rubbrica/Pods-Rubbrica-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7B336CC121592AB50075F384 /* Sources */ = {
@@ -470,16 +537,14 @@
 		};
 		7B336CEE21592AB70075F384 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F70810D7C60824DA9E48E387 /* Pods-Rubbrica.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KLXGCD4J97;
 				INFOPLIST_FILE = Rubbrica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.eggon.Rubbrica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -489,16 +554,14 @@
 		};
 		7B336CEF21592AB70075F384 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E7A2A445E590CC29AC24425 /* Pods-Rubbrica.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KLXGCD4J97;
 				INFOPLIST_FILE = Rubbrica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.eggon.Rubbrica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -513,11 +576,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RubbricaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.eggon.RubbricaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -533,11 +592,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RubbricaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.eggon.RubbricaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -552,11 +607,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RubbricaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.eggon.RubbricaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -571,11 +622,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RubbricaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.eggon.RubbricaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
