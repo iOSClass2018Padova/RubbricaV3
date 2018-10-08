@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol DetailPersonEditDelegate {
+protocol DetailPersonEditDelegate: class {
     func editedPerson(person: Person)
 }
 
@@ -26,7 +26,7 @@ class DetailPersonController: UIViewController {
     private var pickerController:UIImagePickerController?
     
     var person : Person = Person()
-    var delegate : ListPeopleDelegate?
+    weak var delegate : ListPeopleDelegate?
     
     var editingProfile : Bool = false
     private var editedPerson: Person?

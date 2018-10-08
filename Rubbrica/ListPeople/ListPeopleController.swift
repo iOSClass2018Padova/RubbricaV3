@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ListPeopleDelegate {
+protocol ListPeopleDelegate: class {
     func reloadContactCell()
     func addPerson(person : Person)
     func removePerson(person : Person)
@@ -18,8 +18,6 @@ class ListPeopleController: UIViewController {
     
     
     private var listOfPerson : [Person] = []
-    
-    var er : String!
     
     private var selectedContact : Person?
     private var selectedIndexPath : IndexPath!

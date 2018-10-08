@@ -21,7 +21,7 @@ class DetailPersonInfoCell: UITableViewCell {
     
     private var editingPerson : Person!
     
-    var delegate: DetailPersonEditDelegate?
+    weak var delegate: DetailPersonEditDelegate?
     
     @IBOutlet var textFields: [UITextField]!
     
@@ -123,7 +123,7 @@ class DetailPersonAddressCell: UITableViewCell {
     
     private var editingPerson : Person!
     
-    var delegate: DetailPersonEditDelegate?
+    weak var delegate: DetailPersonEditDelegate?
     
     static let kIdentifier = "DetailPersonAddressCell"
     
@@ -206,7 +206,7 @@ class DetailPersonEmailCell: UITableViewCell {
         case email = 0
     }
     
-    var delegate: DetailPersonEditDelegate?
+    weak var delegate: DetailPersonEditDelegate?
     
     private var editingPerson : Person!
     
