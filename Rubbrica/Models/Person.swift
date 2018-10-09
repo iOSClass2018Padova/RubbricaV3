@@ -90,4 +90,12 @@ import RealmSwift
         return Array(realm.objects(Person.self))
     }
     
+    func remove(in realm: Realm = try! Realm()) {
+        do {
+            try realm.write {
+                realm.delete(self)
+            }
+        } catch {}
+    }
+    
 }

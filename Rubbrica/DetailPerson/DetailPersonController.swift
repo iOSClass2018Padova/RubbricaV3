@@ -84,6 +84,7 @@ class DetailPersonController: UIViewController {
         alert.addAction(cancel)
         let okay = UIAlertAction(title: "Si", style: .default) { (alert) in
             self.delegate?.removePerson(person: self.person)
+            self.person.remove()
             self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(okay)
