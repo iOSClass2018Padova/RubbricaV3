@@ -243,24 +243,30 @@ extension DetailPersonController: UIImagePickerControllerDelegate, UINavigationC
             return
         }
         
-        let imageSize: Int = image.pngData()!.count
-        let imageDimension = Double(imageSize) / 1024.0 / 1024.0
-        print("size of image in MB: %f ", imageDimension)
-        
-        var img = image
-        
-        if imageDimension > 15 {
-            let percent = (100 * imageDimension) / 15 - 100
-            img = image.resized(withPercentage: CGFloat(percent/100)) ?? UIImage()
-            
-            let imageSize: Int = img.pngData()!.count
-            let imageDimension = Double(imageSize) / 1024.0 / 1024.0
-            print("size of image in MB: %f ", imageDimension)
-            
-        }
-        
+        let img = checkImageSizeAndResize(image: image)
+
         person.changeData(image: img.pngData())
         tableView.reloadRows(at: [IndexPath(item: 0, section: 0)], with: .automatic)
         self.dismiss(animated: true, completion: nil)
     }
+    
+    private func checkImageSizeAndResize(image : UIImage) -> UIImage {
+        
+        let imageSize: Int = image.pngData()!.count
+        let imageDimension = Double(imageSize) / 1024.0 / 1024.0
+        print("size of image in MB: ", imageDimension)
+        
+        if imageDimension > 15 {
+            
+            let img = image.resized(withPercentage: 0.5) ?? UIImage()
+            
+            return checkImageSizeAndResize(image: img)
+            
+        }
+        
+        return image
+        
+        
+    }
+    
 }

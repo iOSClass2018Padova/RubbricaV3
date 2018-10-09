@@ -78,7 +78,7 @@ import RealmSwift
     }
     
     
-    func save(in realm: Realm = try! Realm()) {
+    func add(in realm: Realm = try! Realm()) {
         do {
             try realm.write {
                 realm.add(self)

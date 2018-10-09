@@ -113,7 +113,7 @@ extension ListPeopleController : ListPeopleDelegate {
     
     func addPerson(person : Person) {
         if addNewPerson {
-            person.save()
+            person.add()
             listOfPerson.append(person)
             tableView.insertRows(at: [IndexPath(item: listOfPerson.count - 1, section: 0)], with: .automatic)
             addNewPerson = false
