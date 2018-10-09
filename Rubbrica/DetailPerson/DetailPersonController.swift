@@ -29,7 +29,7 @@ class DetailPersonController: UIViewController {
     weak var delegate : ListPeopleDelegate?
     
     var editingProfile : Bool = false
-    private var editedPerson: Person?
+    private var editedPerson: Person!
     
     private lazy var addingNewElement : Bool = false
     
@@ -42,8 +42,8 @@ class DetailPersonController: UIViewController {
         
         editingBarButtonItem.title = editingProfile ? "Add" : "Edit"
         addingNewElement = editingProfile
-        
-        editedPerson?.changeData(person : person)
+
+        editedPerson = Person(value: person)
         
     }
     
@@ -51,7 +51,7 @@ class DetailPersonController: UIViewController {
         
         if editingProfile {
             
-            person.changeData(person : editedPerson ?? Person())
+            person.changeData(person : editedPerson)
             
             guard (person.name != nil && !person.name!.isEmpty) || (person.surname != nil && !person.surname!.isEmpty) else {
                 
@@ -63,7 +63,7 @@ class DetailPersonController: UIViewController {
                 return }
             
             if addingNewElement {
-                delegate?.addPerson(person: person)
+                delegate?.addPerson(person: editedPerson)
             } else {
                 delegate?.reloadContactCell()
             }
@@ -92,6 +92,7 @@ class DetailPersonController: UIViewController {
     }
     
     @objc func cancelAction(_ sender: UIBarButtonItem) {
+        editedPerson = Person(value: person)
         dismissEditing()
     }
     
@@ -147,7 +148,7 @@ class DetailPersonController: UIViewController {
 extension DetailPersonController: DetailPersonEditDelegate {
     
     func editedPerson(person: Person) {
-        editedPerson?.changeData(person : person)
+        editedPerson = Person(value: person)
     }
     
     
@@ -178,21 +179,21 @@ extension DetailPersonController : UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailPersonInfoCell.kIdentifier, for: indexPath) as! DetailPersonInfoCell
             
             cell.delegate = self
-            cell.setup(withObject: person, withEditingMode: editingProfile)
+            cell.setup(withObject: editedPerson, withEditingMode: editingProfile)
             
             return cell
         case PERSON_ADDRESS:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailPersonAddressCell.kIdentifier, for: indexPath) as! DetailPersonAddressCell
             
             cell.delegate = self
-            cell.setup(withObject: person, withEditingMode: editingProfile)
+            cell.setup(withObject: editedPerson, withEditingMode: editingProfile)
             
             return cell
         case PERSON_EMAIL:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailPersonEmailCell.kIdentifier, for: indexPath) as! DetailPersonEmailCell
             
             cell.delegate = self
-            cell.setup(withObject: person, withEditingMode: editingProfile)
+            cell.setup(withObject: editedPerson, withEditingMode: editingProfile)
             
             return cell
         case PERSON_REMOVE:
@@ -245,7 +246,7 @@ extension DetailPersonController: UIImagePickerControllerDelegate, UINavigationC
         
         let img = checkImageSizeAndResize(image: image)
 
-        person.changeData(image: img.pngData())
+        editedPerson?.changeData(image: img.pngData())
         tableView.reloadRows(at: [IndexPath(item: 0, section: 0)], with: .automatic)
         self.dismiss(animated: true, completion: nil)
     }

@@ -50,7 +50,7 @@ class DetailPersonInfoCell: UITableViewCell {
     
     func setup(withObject object : Person, withEditingMode edit : Bool) {
         
-        editingPerson = object
+        editingPerson = Person(value: object)
         
         for textField in textFields {
             switch textField.tag {
@@ -69,6 +69,8 @@ class DetailPersonInfoCell: UITableViewCell {
         
         if let imageProfile = object.image {
             self.imageProfile.setImage(UIImage(data: imageProfile), for: .normal)
+        } else {
+            self.imageProfile.setImage(UIImage(named: "Placeholder-image"), for: .normal)
         }
         
         self.imageProfile.isUserInteractionEnabled = edit
@@ -86,7 +88,7 @@ class DetailPersonInfoCell: UITableViewCell {
     @IBAction func editingTextAction(_ sender: UITextField) {
         switch sender.tag {
         case TextFieldType.name.rawValue:
-            editingPerson.changeData(name : sender.text)
+            editingPerson.changeData(name: sender.text)
         case TextFieldType.surname.rawValue:
             editingPerson.changeData(surname : sender.text)
         case TextFieldType.nikname.rawValue:
@@ -144,7 +146,7 @@ class DetailPersonAddressCell: UITableViewCell {
     
     func setup(withObject object : Person, withEditingMode edit : Bool) {
         
-        editingPerson = object
+        editingPerson = Person(value: object)
         
         for textField in textFields {
             switch textField.tag {
@@ -229,7 +231,7 @@ class DetailPersonEmailCell: UITableViewCell {
     
     func setup(withObject object : Person, withEditingMode edit : Bool) {
         
-        editingPerson = object
+        editingPerson = Person(value: object)
         
         for textField in textFields {
             switch textField.tag {
