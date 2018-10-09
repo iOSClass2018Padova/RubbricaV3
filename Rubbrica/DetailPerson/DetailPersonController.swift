@@ -43,7 +43,7 @@ class DetailPersonController: UIViewController {
         editingBarButtonItem.title = editingProfile ? "Add" : "Edit"
         addingNewElement = editingProfile
         
-        editedPerson = person
+        editedPerson?.changeData(person : person)
         
     }
     
@@ -51,7 +51,7 @@ class DetailPersonController: UIViewController {
         
         if editingProfile {
             
-            person = editedPerson ?? Person()
+            person.changeData(person : editedPerson ?? Person())
             
             guard (person.name != nil && !person.name!.isEmpty) || (person.surname != nil && !person.surname!.isEmpty) else {
                 
@@ -147,7 +147,7 @@ class DetailPersonController: UIViewController {
 extension DetailPersonController: DetailPersonEditDelegate {
     
     func editedPerson(person: Person) {
-        editedPerson = person
+        editedPerson?.changeData(person : person)
     }
     
     
@@ -238,14 +238,29 @@ extension DetailPersonController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        guard let image = info[.originalImage] as? UIImage else {
+        guard let image = info[.editedImage] as? UIImage else {
             debugPrint("No image found")
             return
         }
         
-        person.image = image
+        let imageSize: Int = image.pngData()!.count
+        let imageDimension = Double(imageSize) / 1024.0 / 1024.0
+        print("size of image in MB: %f ", imageDimension)
+        
+        var img = image
+        
+        if imageDimension > 15 {
+            let percent = (100 * imageDimension) / 15 - 100
+            img = image.resized(withPercentage: CGFloat(percent/100)) ?? UIImage()
+            
+            let imageSize: Int = img.pngData()!.count
+            let imageDimension = Double(imageSize) / 1024.0 / 1024.0
+            print("size of image in MB: %f ", imageDimension)
+            
+        }
+        
+        person.changeData(image: img.pngData())
         tableView.reloadRows(at: [IndexPath(item: 0, section: 0)], with: .automatic)
-        delegate?.reloadContactCell()
         self.dismiss(animated: true, completion: nil)
     }
 }

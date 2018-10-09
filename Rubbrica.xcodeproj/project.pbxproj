@@ -16,6 +16,7 @@
 		7B336CF721592B210075F384 /* ListPeopleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B336CF621592B210075F384 /* ListPeopleController.swift */; };
 		7B336CF921592B350075F384 /* ListPeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B336CF821592B350075F384 /* ListPeopleCell.swift */; };
 		7B336CFB21592C050075F384 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B336CFA21592C050075F384 /* Person.swift */; };
+		7B5EFC71216BAF2A00A7E7F5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5EFC70216BAF2A00A7E7F5 /* Extensions.swift */; };
 		7BF497A3215A2C00001995DC /* DetailPersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF497A2215A2C00001995DC /* DetailPersonController.swift */; };
 		7BF497A5215A2C29001995DC /* DetailPersonCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF497A4215A2C29001995DC /* DetailPersonCells.swift */; };
 		B64A1FF7C7668CA923D8B9B4 /* Pods_Rubbrica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F890D4CB8FC3C39FFB3BA141 /* Pods_Rubbrica.framework */; };
@@ -55,6 +56,7 @@
 		7B336CF621592B210075F384 /* ListPeopleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPeopleController.swift; sourceTree = "<group>"; };
 		7B336CF821592B350075F384 /* ListPeopleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPeopleCell.swift; sourceTree = "<group>"; };
 		7B336CFA21592C050075F384 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		7B5EFC70216BAF2A00A7E7F5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7BF497A2215A2C00001995DC /* DetailPersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonController.swift; sourceTree = "<group>"; };
 		7BF497A4215A2C29001995DC /* DetailPersonCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonCells.swift; sourceTree = "<group>"; };
 		F70810D7C60824DA9E48E387 /* Pods-Rubbrica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rubbrica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rubbrica/Pods-Rubbrica.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				7B336CC821592AB60075F384 /* AppDelegate.swift */,
+				7B5EFC70216BAF2A00A7E7F5 /* Extensions.swift */,
 				7BF497A0215A2B8B001995DC /* ListPeople */,
 				7B5EFC6F216B674900A7E7F5 /* Models */,
 				7BF497A1215A2BE1001995DC /* DetailPerson */,
@@ -365,6 +368,7 @@
 				7B336CFB21592C050075F384 /* Person.swift in Sources */,
 				7B336CF921592B350075F384 /* ListPeopleCell.swift in Sources */,
 				7BF497A3215A2C00001995DC /* DetailPersonController.swift in Sources */,
+				7B5EFC71216BAF2A00A7E7F5 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,7 +548,10 @@
 				DEVELOPMENT_TEAM = KLXGCD4J97;
 				INFOPLIST_FILE = Rubbrica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.eggon.Rubbrica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -561,7 +568,10 @@
 				DEVELOPMENT_TEAM = KLXGCD4J97;
 				INFOPLIST_FILE = Rubbrica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.eggon.Rubbrica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -576,7 +586,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RubbricaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.eggon.RubbricaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -592,7 +606,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RubbricaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.eggon.RubbricaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -607,7 +625,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RubbricaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.eggon.RubbricaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -622,7 +644,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RubbricaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.eggon.RubbricaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

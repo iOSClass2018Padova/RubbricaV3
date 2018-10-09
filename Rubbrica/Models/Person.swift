@@ -11,7 +11,7 @@ import RealmSwift
 
 @objcMembers class Person: Object {
     
-    dynamic var image : UIImage?
+    dynamic var image : Data?
     
     dynamic var name : String?
     dynamic var surname : String?
@@ -25,7 +25,7 @@ import RealmSwift
     dynamic var mobile : String?
     dynamic var email : String?
     
-    convenience init(name : String? = nil, surname: String? = nil, mobile: String? = nil, image: UIImage? = nil, nikname: String? = nil, address: String? = nil, cap: String? = nil, city: String? = nil, country: String? = nil, email: String? = nil) {
+    convenience init(name : String? = nil, surname: String? = nil, mobile: String? = nil, image: Data? = nil, nikname: String? = nil, address: String? = nil, cap: String? = nil, city: String? = nil, country: String? = nil, email: String? = nil) {
         self.init()
         
         self.name = name
@@ -54,13 +54,40 @@ import RealmSwift
         return fullName
     }
     
+    func changeData(in realm: Realm = try! Realm(), name : String? = nil, surname: String? = nil, mobile: String? = nil, image: Data? = nil, nikname: String? = nil, address: String? = nil, cap: String? = nil, city: String? = nil, country: String? = nil, email: String? = nil, person: Person? = nil) {
+        do {
+            try realm.write {
+                
+                self.name = name ?? person?.name ?? self.name
+                self.surname = surname ?? person?.surname ?? self.surname
+                self.mobile = mobile ?? person?.mobile ?? self.mobile
+                
+                self.image = image ?? person?.image ?? self.image
+                self.nikname = nikname ?? person?.nikname ?? self.nikname
+                
+                self.address = address ?? person?.address ?? self.address
+                self.cap = cap ?? person?.cap ?? self.cap
+                self.city = city ?? person?.city ?? self.city
+                self.country = country ?? person?.country ?? self.country
+                
+                self.email = email ?? person?.email ?? self.email
+                
+            }
+        }catch {}
+        
+    }
+    
     
     func save(in realm: Realm = try! Realm()) {
         do {
             try realm.write {
-            realm.add(self)
-        }
+                realm.add(self)
+            }
         } catch {}
     }
-
+    
+    static func all(in realm: Realm = try! Realm()) -> [Person] {
+        return Array(realm.objects(Person.self))
+    }
+    
 }

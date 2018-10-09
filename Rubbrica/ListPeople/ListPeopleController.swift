@@ -27,6 +27,8 @@ class ListPeopleController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        listOfPerson = Person.all()
 
     }
 
@@ -79,7 +81,7 @@ extension ListPeopleController : UITableViewDelegate, UITableViewDataSource {
         cell.nameProfile.text = listOfPerson[indexPath.row].fullName()
         
         if let imageProfile = listOfPerson[indexPath.row].image {
-            cell.imageProfile.image = imageProfile
+            cell.imageProfile.image = UIImage(data: imageProfile)
         } else {
             cell.imageProfile.image = UIImage(named: "Placeholder-image")
         }

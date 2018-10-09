@@ -68,7 +68,7 @@ class DetailPersonInfoCell: UITableViewCell {
         }
         
         if let imageProfile = object.image {
-            self.imageProfile.setImage(imageProfile, for: .normal)
+            self.imageProfile.setImage(UIImage(data: imageProfile), for: .normal)
         }
         
         self.imageProfile.isUserInteractionEnabled = edit
@@ -86,13 +86,13 @@ class DetailPersonInfoCell: UITableViewCell {
     @IBAction func editingTextAction(_ sender: UITextField) {
         switch sender.tag {
         case TextFieldType.name.rawValue:
-            editingPerson.name = sender.text
+            editingPerson.changeData(name : sender.text)
         case TextFieldType.surname.rawValue:
-            editingPerson.surname = sender.text
+            editingPerson.changeData(surname : sender.text)
         case TextFieldType.nikname.rawValue:
-            editingPerson.nikname = sender.text
+            editingPerson.changeData(nikname : sender.text)
         case TextFieldType.mobile.rawValue:
-            editingPerson.mobile = sender.text
+            editingPerson.changeData(mobile : sender.text)
         default:
             break
         }
@@ -175,13 +175,13 @@ class DetailPersonAddressCell: UITableViewCell {
     @IBAction func editingTextAction(_ sender: UITextField) {
         switch sender.tag {
         case TextFieldType.address.rawValue:
-            editingPerson.address = sender.text
+            editingPerson.changeData(address : sender.text)
         case TextFieldType.cap.rawValue:
-            editingPerson.cap = sender.text
+            editingPerson.changeData(cap : sender.text)
         case TextFieldType.city.rawValue:
-            editingPerson.city = sender.text
+            editingPerson.changeData(city : sender.text)
         case TextFieldType.country.rawValue:
-            editingPerson.country = sender.text
+            editingPerson.changeData(country : sender.text)
         default:
             break
         }
@@ -254,7 +254,7 @@ class DetailPersonEmailCell: UITableViewCell {
     @IBAction func editingTextAction(_ sender: UITextField) {
         switch sender.tag {
         case TextFieldType.email.rawValue:
-            editingPerson.email = sender.text
+            editingPerson.changeData(email : sender.text)
         default:
             break
         }
